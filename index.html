@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -44,7 +43,9 @@
             overflow-x: hidden;
         }
 
-        /* ================= MENU ================= */
+        /* =========================
+           MENU
+           ========================= */
 
         header {
             position: fixed;
@@ -111,7 +112,9 @@
             transform: translateY(-2px);
         }
 
-        /* ================= HERO ================= */
+        /* =========================
+           HERO
+           ========================= */
 
         .hero {
             min-height: 100vh;
@@ -168,6 +171,7 @@
         .hero-logo {
             width: min(420px, 75vw);
             max-height: 300px;
+
             object-fit: contain;
 
             margin-bottom: 20px;
@@ -176,15 +180,11 @@
                 drop-shadow(0 15px 25px rgba(0,0,0,0.4));
         }
 
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 90px);
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
         .hero p {
             font-size: clamp(18px, 3vw, 25px);
+
             color: var(--pastel-pink);
+
             font-style: italic;
 
             margin-bottom: 35px;
@@ -196,6 +196,7 @@
             padding: 15px 30px;
 
             background: var(--racing-red);
+
             color: white;
 
             text-decoration: none;
@@ -211,41 +212,53 @@
 
         .hero-button:hover {
             transform: translateY(-5px);
+
             background: #ff2944;
         }
 
-        /* ================= SEÇÕES ================= */
+        /* =========================
+           SEÇÕES
+           ========================= */
 
         section {
             padding: 100px 25px;
+
             scroll-margin-top: 80px;
         }
 
         .section-container {
             max-width: 1100px;
+
             margin: auto;
         }
 
         .section-title {
             text-align: center;
+
             margin-bottom: 55px;
         }
 
         .section-title span {
             color: var(--racing-red);
+
             font-size: 14px;
+
             text-transform: uppercase;
+
             letter-spacing: 4px;
         }
 
         .section-title h2 {
             font-size: clamp(35px, 5vw, 55px);
+
             color: var(--rich-mahogany);
+
             margin-top: 8px;
         }
 
         .section-title::after {
             content: "";
+
             display: block;
 
             width: 60px;
@@ -256,7 +269,9 @@
             margin: 18px auto 0;
         }
 
-        /* ================= HISTÓRIA ================= */
+        /* =========================
+           HISTÓRIA
+           ========================= */
 
         .history {
             background: var(--floral-white);
@@ -264,6 +279,7 @@
 
         .history-content {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
 
             gap: 50px;
@@ -273,9 +289,22 @@
 
         .history-text p {
             font-size: 18px;
+
             line-height: 1.8;
 
             margin-bottom: 18px;
+        }
+
+        .history-year {
+            color: var(--racing-red);
+
+            font-size: 23px;
+
+            font-weight: bold;
+
+            margin-top: 25px;
+
+            margin-bottom: 8px;
         }
 
         .history-image {
@@ -291,7 +320,9 @@
                 );
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             overflow: hidden;
@@ -301,11 +332,15 @@
 
         .history-image img {
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
         }
 
-        /* ================= CRIAÇÃO ================= */
+        /* =========================
+           CRIAÇÃO
+           ========================= */
 
         .creation {
             background: var(--pastel-pink);
@@ -313,6 +348,7 @@
 
         .creation-card {
             max-width: 800px;
+
             margin: auto;
 
             background: var(--floral-white);
@@ -328,6 +364,7 @@
 
         .creation-year {
             font-size: 70px;
+
             font-weight: bold;
 
             color: var(--racing-red);
@@ -337,10 +374,13 @@
 
         .creation-card p {
             font-size: 18px;
+
             line-height: 1.7;
         }
 
-        /* ================= PRODUTOS ================= */
+        /* =========================
+           PRODUTOS
+           ========================= */
 
         .products {
             background: var(--floral-white);
@@ -362,7 +402,8 @@
 
             overflow: hidden;
 
-            box-shadow: 0 10px 30px rgba(37, 2, 2, 0.1);
+            box-shadow:
+                0 10px 30px rgba(37, 2, 2, 0.1);
 
             transition: 0.35s;
         }
@@ -380,7 +421,9 @@
             background: var(--pastel-pink);
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             overflow: hidden;
@@ -388,7 +431,9 @@
 
         .product-image img {
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
         }
 
@@ -398,6 +443,7 @@
 
         .product-info h3 {
             color: var(--crushed-berry);
+
             margin-bottom: 8px;
         }
 
@@ -405,10 +451,13 @@
             line-height: 1.6;
         }
 
-        /* ================= CURIOSIDADES ================= */
+        /* =========================
+           CURIOSIDADES
+           ========================= */
 
         .facts {
             background: var(--rich-mahogany);
+
             color: var(--floral-white);
         }
 
@@ -439,12 +488,15 @@
 
         .fact-card:hover {
             background: rgba(241, 2, 34, 0.18);
+
             transform: translateY(-6px);
         }
 
         .fact-number {
             font-size: 40px;
+
             color: var(--racing-red);
+
             margin-bottom: 12px;
         }
 
@@ -454,10 +506,13 @@
 
         .fact-card p {
             line-height: 1.6;
+
             color: #f8dddd;
         }
 
-        /* ================= PROPOSTA ================= */
+        /* =========================
+           PROPOSTA
+           ========================= */
 
         .proposal {
             background: var(--pastel-pink);
@@ -465,6 +520,7 @@
 
         .proposal-box {
             max-width: 850px;
+
             margin: auto;
 
             text-align: center;
@@ -472,10 +528,13 @@
 
         .proposal-box p {
             font-size: 21px;
+
             line-height: 1.8;
         }
 
-        /* ================= FUNCIONÁRIOS ================= */
+        /* =========================
+           FUNCIONÁRIOS
+           ========================= */
 
         .employees {
             background: var(--floral-white);
@@ -485,7 +544,7 @@
             display: grid;
 
             grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
+                repeat(auto-fit, minmax(230px, 1fr));
 
             gap: 25px;
         }
@@ -493,18 +552,16 @@
         .employee-card {
             background: white;
 
-            padding: 30px 25px;
+            padding: 28px;
 
             border-radius: 22px;
 
             text-align: center;
 
             box-shadow:
-                0 10px 30px rgba(37, 2, 2, 0.10);
+                0 10px 30px rgba(37, 2, 2, 0.1);
 
-            transition: 0.35s;
-
-            border-top: 4px solid var(--racing-red);
+            transition: 0.3s;
         }
 
         .employee-card:hover {
@@ -514,43 +571,21 @@
                 0 20px 40px rgba(37, 2, 2, 0.18);
         }
 
-        .employee-icon {
-            width: 75px;
-            height: 75px;
-
-            margin: 0 auto 18px;
-
-            border-radius: 50%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: var(--pastel-pink);
-
-            color: var(--crushed-berry);
-
-            font-size: 30px;
-            font-weight: bold;
-        }
-
         .employee-card h3 {
             color: var(--crushed-berry);
 
-            font-size: 24px;
+            margin-bottom: 10px;
 
-            margin-bottom: 12px;
+            font-size: 23px;
         }
 
         .employee-card p {
-            color: var(--rich-mahogany);
-
-            font-size: 16px;
-
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* ================= CONTATO ================= */
+        /* =========================
+           CONTATO
+           ========================= */
 
         .contact {
             background:
@@ -571,6 +606,7 @@
 
         .contact p {
             font-size: 18px;
+
             margin-bottom: 15px;
         }
 
@@ -594,10 +630,13 @@
 
         .social-button:hover {
             background: var(--racing-red);
+
             border-color: var(--racing-red);
         }
 
-        /* ================= FOOTER ================= */
+        /* =========================
+           FOOTER
+           ========================= */
 
         footer {
             background: #160101;
@@ -615,7 +654,9 @@
             color: var(--pastel-pink);
         }
 
-        /* ================= BOTÃO TOPO ================= */
+        /* =========================
+           BOTÃO TOPO
+           ========================= */
 
         #topButton {
             position: fixed;
@@ -627,9 +668,11 @@
             height: 48px;
 
             border: none;
+
             border-radius: 50%;
 
             background: var(--racing-red);
+
             color: white;
 
             font-size: 20px;
@@ -637,6 +680,7 @@
             cursor: pointer;
 
             opacity: 0;
+
             pointer-events: none;
 
             transition: 0.3s;
@@ -646,13 +690,17 @@
 
         #topButton.visible {
             opacity: 1;
+
             pointer-events: auto;
         }
 
-        /* ================= ANIMAÇÕES ================= */
+        /* =========================
+           ANIMAÇÕES
+           ========================= */
 
         .reveal {
             opacity: 0;
+
             transform: translateY(35px);
 
             transition:
@@ -662,6 +710,7 @@
 
         .reveal.active {
             opacity: 1;
+
             transform: translateY(0);
         }
 
@@ -669,17 +718,21 @@
 
             from {
                 opacity: 0;
+
                 transform: translateY(30px);
             }
 
             to {
                 opacity: 1;
+
                 transform: translateY(0);
             }
 
         }
 
-        /* ================= CELULAR ================= */
+        /* =========================
+           CELULAR
+           ========================= */
 
         @media (max-width: 800px) {
 
@@ -726,7 +779,7 @@
 
 <body>
 
-    <!-- ================= MENU ================= -->
+    <!-- MENU -->
 
     <header>
 
@@ -762,7 +815,8 @@
 
     </header>
 
-    <!-- ================= INÍCIO ================= -->
+
+    <!-- INÍCIO -->
 
     <section class="hero" id="inicio">
 
@@ -789,7 +843,8 @@
 
     </section>
 
-    <!-- ================= HISTÓRIA ================= -->
+
+    <!-- HISTÓRIA -->
 
     <section class="history reveal" id="historia">
 
@@ -807,27 +862,86 @@
 
                 <div class="history-text">
 
+                    <div class="history-year">
+                        2015 — Ponta Grossa, PR 🇧🇷
+                    </div>
+
                     <p>
-                        A Dulcis Paradisus nasceu com a proposta
-                        de transformar a confeitaria em uma
-                        experiência especial.
+                        Em meio a um período de dificuldades econômicas
+                        no Brasil, seis amigos decidiram transformar suas
+                        habilidades em uma oportunidade. Assim nasceu a
+                        Dulcis Paradisus, em uma pequena cozinha no bairro
+                        Uvaranas.
                     </p>
 
                     <p>
-                        Cada detalhe foi pensado para transmitir
-                        delicadeza, cuidado e uma sensação de
-                        estar em um verdadeiro paraíso de sabores.
+                        Com poucos recursos, começaram produzindo bolos
+                        e doces por encomenda. Cada integrante assumiu
+                        uma função de acordo com suas habilidades,
+                        unindo confeitaria, administração, atendimento
+                        e criatividade.
+                    </p>
+
+
+                    <div class="history-year">
+                        2016–2020 — O crescimento
+                    </div>
+
+                    <p>
+                        A qualidade dos produtos fez a Dulcis conquistar
+                        cada vez mais clientes. A empresa passou por
+                        diferentes espaços até chegar a uma grande loja
+                        em Ponta Grossa.
                     </p>
 
                     <p>
-                        <!-- TROQUE ESTE TEXTO PELA HISTÓRIA REAL -->
+                        O sucesso ultrapassou os limites da cidade:
+                        a Dulcis passou a movimentar o comércio local
+                        e atrair visitantes de diversas regiões do Brasil,
+                        transformando a confeitaria em um dos pontos
+                        procurados por quem visitava Ponta Grossa.
+                    </p>
+
+
+                    <div class="history-year">
+                        2024 — Manchester, Reino Unido 🇬🇧
+                    </div>
+
+                    <p>
+                        Com a marca consolidada no Brasil, os seis
+                        decidiram expandir para a Europa. A equipe
+                        original assumiu a unidade de Manchester,
+                        enquanto uma nova gerência ficou responsável
+                        pela loja brasileira.
+                    </p>
+
+
+                    <div class="history-year">
+                        2026 — Paris, França 🇫🇷
+                    </div>
+
+                    <p>
+                        Atualmente, a Dulcis inicia uma nova fase
+                        com a preparação de sua primeira unidade
+                        em Paris, levando para a França a história
+                        que começou em uma pequena cozinha de Uvaranas.
                     </p>
 
                 </div>
 
+
                 <div class="history-image">
 
-                    <!-- COLOQUE UMA FOTO DA EMPRESA AQUI -->
+                    <!--
+                    COLOQUE UMA FOTO DA HISTÓRIA AQUI.
+
+                    Exemplo:
+
+                    <img
+                        src="historia.jpg"
+                        alt="História da Dulcis Paradisus"
+                    >
+                    -->
 
                 </div>
 
@@ -837,7 +951,8 @@
 
     </section>
 
-    <!-- ================= CRIAÇÃO ================= -->
+
+    <!-- CRIAÇÃO -->
 
     <section class="creation reveal" id="criacao">
 
@@ -854,14 +969,14 @@
             <div class="creation-card">
 
                 <div class="creation-year">
-                    2026
+                    2015
                 </div>
 
                 <p>
-                    A Dulcis Paradisus foi criada com o objetivo
-                    de oferecer uma experiência de confeitaria
-                    que unisse sabor, estética e carinho em
-                    cada criação.
+                    A Dulcis Paradisus nasceu em Ponta Grossa
+                    com o objetivo de transformar confeitaria,
+                    criatividade e cuidado em experiências
+                    especiais.
                 </p>
 
             </div>
@@ -870,7 +985,8 @@
 
     </section>
 
-    <!-- ================= PRODUTOS ================= -->
+
+    <!-- PRODUTOS -->
 
     <section class="products reveal" id="produtos">
 
@@ -902,14 +1018,14 @@
                         <h3>Bolo Especial</h3>
 
                         <p>
-                            Uma criação preparada
-                            especialmente para tornar
-                            cada momento mais doce.
+                            Uma criação preparada especialmente
+                            para tornar cada momento mais doce.
                         </p>
 
                     </div>
 
                 </article>
+
 
                 <article class="product-card">
 
@@ -933,6 +1049,7 @@
                     </div>
 
                 </article>
+
 
                 <article class="product-card">
 
@@ -963,7 +1080,8 @@
 
     </section>
 
-    <!-- ================= CURIOSIDADES ================= -->
+
+    <!-- CURIOSIDADES -->
 
     <section class="facts reveal" id="curiosidades">
 
@@ -988,11 +1106,12 @@
                     <h3>Curiosidade</h3>
 
                     <p>
-                        Coloque aqui uma curiosidade
-                        interessante sobre a Dulcis Paradisus.
+                        Coloque aqui uma curiosidade interessante
+                        sobre a Dulcis Paradisus.
                     </p>
 
                 </article>
+
 
                 <article class="fact-card">
 
@@ -1009,6 +1128,7 @@
 
                 </article>
 
+
                 <article class="fact-card">
 
                     <div class="fact-number">
@@ -1018,11 +1138,12 @@
                     <h3>Nossa identidade</h3>
 
                     <p>
-                        Conte uma curiosidade sobre as
-                        cores, logo ou conceito da marca.
+                        Conte uma curiosidade sobre as cores,
+                        logo ou conceito da marca.
                     </p>
 
                 </article>
+
 
                 <article class="fact-card">
 
@@ -1033,8 +1154,7 @@
                     <h3>Um detalhe especial</h3>
 
                     <p>
-                        Adicione outra curiosidade
-                        sobre a empresa.
+                        Adicione outra curiosidade sobre a empresa.
                     </p>
 
                 </article>
@@ -1045,7 +1165,8 @@
 
     </section>
 
-    <!-- ================= PROPOSTA ================= -->
+
+    <!-- PROPOSTA -->
 
     <section class="proposal reveal" id="proposta">
 
@@ -1075,7 +1196,8 @@
 
     </section>
 
-    <!-- ================= FUNCIONÁRIOS ================= -->
+
+    <!-- FUNCIONÁRIOS -->
 
     <section class="employees reveal" id="funcionarios">
 
@@ -1093,10 +1215,6 @@
 
                 <article class="employee-card">
 
-                    <div class="employee-icon">
-                        M
-                    </div>
-
                     <h3>Matheus</h3>
 
                     <p>
@@ -1106,11 +1224,8 @@
 
                 </article>
 
-                <article class="employee-card">
 
-                    <div class="employee-icon">
-                        E
-                    </div>
+                <article class="employee-card">
 
                     <h3>Emanuelly</h3>
 
@@ -1121,11 +1236,8 @@
 
                 </article>
 
-                <article class="employee-card">
 
-                    <div class="employee-icon">
-                        K
-                    </div>
+                <article class="employee-card">
 
                     <h3>Kalebe</h3>
 
@@ -1136,11 +1248,8 @@
 
                 </article>
 
-                <article class="employee-card">
 
-                    <div class="employee-icon">
-                        B
-                    </div>
+                <article class="employee-card">
 
                     <h3>Benjamin</h3>
 
@@ -1151,11 +1260,8 @@
 
                 </article>
 
-                <article class="employee-card">
 
-                    <div class="employee-icon">
-                        V
-                    </div>
+                <article class="employee-card">
 
                     <h3>Vincenzzo</h3>
 
@@ -1166,11 +1272,8 @@
 
                 </article>
 
-                <article class="employee-card">
 
-                    <div class="employee-icon">
-                        G
-                    </div>
+                <article class="employee-card">
 
                     <h3>Guilherme</h3>
 
@@ -1187,7 +1290,8 @@
 
     </section>
 
-    <!-- ================= CONTATO ================= -->
+
+    <!-- CONTATO -->
 
     <section class="contact reveal" id="contato">
 
@@ -1220,7 +1324,8 @@
 
     </section>
 
-    <!-- ================= RODAPÉ ================= -->
+
+    <!-- RODAPÉ -->
 
     <footer>
 
@@ -1240,13 +1345,13 @@
 
     </footer>
 
-    <!-- ================= BOTÃO TOPO ================= -->
+
+    <!-- BOTÃO TOPO -->
 
     <button id="topButton" aria-label="Voltar ao topo">
         ↑
     </button>
 
-    <!-- ================= JAVASCRIPT ================= -->
 
     <script>
 
@@ -1281,8 +1386,10 @@
 
         });
 
+
         const topButton =
             document.getElementById("topButton");
+
 
         window.addEventListener("scroll", () => {
 
@@ -1298,6 +1405,7 @@
 
         });
 
+
         topButton.addEventListener("click", () => {
 
             window.scrollTo({
@@ -1309,6 +1417,7 @@
             });
 
         });
+
 
         document.querySelectorAll(".menu a")
             .forEach(link => {
@@ -1324,5 +1433,4 @@
     </script>
 
 </body>
-</html>
-```
+                    </html>

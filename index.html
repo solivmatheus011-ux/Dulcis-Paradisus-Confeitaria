@@ -1,1436 +1,1273 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Dulcis Paradisus</title>
-
-    <meta
-        name="description"
-        content="Dulcis Paradisus — um toque de doçura em cada detalhe."
-    >
-
-    <style>
-
-        :root {
-            --floral-white: #FFF9F2;
-            --pastel-pink: #FFCAD0;
-            --racing-red: #F10222;
-            --crushed-berry: #892325;
-            --rich-mahogany: #250202;
-
-            --text-dark: #250202;
-            --text-light: #FFF9F2;
-
-            --shadow: rgba(37, 2, 2, 0.22);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            background: var(--floral-white);
-            color: var(--rich-mahogany);
-            overflow-x: hidden;
-        }
-
-        /* =========================
-           MENU
-           ========================= */
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-
-            background: rgba(37, 2, 2, 0.94);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid rgba(255, 249, 242, 0.12);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 15px 30px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            color: var(--floral-white);
-            text-decoration: none;
-
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .nav-logo img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
-
-        .menu {
-            display: flex;
-            gap: 8px;
-            list-style: none;
-        }
-
-        .menu a {
-            color: var(--floral-white);
-            text-decoration: none;
-
-            padding: 9px 13px;
-            border-radius: 20px;
-
-            font-size: 14px;
-
-            transition: 0.3s;
-        }
-
-        .menu a:hover {
-            background: var(--racing-red);
-            transform: translateY(-2px);
-        }
-
-        /* =========================
-           HERO
-           ========================= */
-
-        .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 120px 25px 70px;
-
-            position: relative;
-
-            background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    rgba(241, 2, 34, 0.35),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    145deg,
-                    var(--rich-mahogany),
-                    var(--crushed-berry)
-                );
-
-            color: var(--floral-white);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-
-            width: 400px;
-            height: 400px;
-
-            border-radius: 50%;
-
-            background: var(--racing-red);
-            opacity: 0.08;
-
-            filter: blur(80px);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-
-            max-width: 850px;
-
-            animation: fadeUp 1.2s ease;
-        }
-
-        .hero-logo {
-            width: min(420px, 75vw);
-            max-height: 300px;
-
-            object-fit: contain;
-
-            margin-bottom: 20px;
-
-            filter:
-                drop-shadow(0 15px 25px rgba(0,0,0,0.4));
-        }
-
-        .hero p {
-            font-size: clamp(18px, 3vw, 25px);
-
-            color: var(--pastel-pink);
-
-            font-style: italic;
-
-            margin-bottom: 35px;
-        }
-
-        .hero-button {
-            display: inline-block;
-
-            padding: 15px 30px;
-
-            background: var(--racing-red);
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 30px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-
-        .hero-button:hover {
-            transform: translateY(-5px);
-
-            background: #ff2944;
-        }
-
-        /* =========================
-           SEÇÕES
-           ========================= */
-
-        section {
-            padding: 100px 25px;
-
-            scroll-margin-top: 80px;
-        }
-
-        .section-container {
-            max-width: 1100px;
-
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            color: var(--racing-red);
-
-            font-size: 14px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 4px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(35px, 5vw, 55px);
-
-            color: var(--rich-mahogany);
-
-            margin-top: 8px;
-        }
-
-        .section-title::after {
-            content: "";
-
-            display: block;
-
-            width: 60px;
-            height: 3px;
-
-            background: var(--racing-red);
-
-            margin: 18px auto 0;
-        }
-
-        /* =========================
-           HISTÓRIA
-           ========================= */
-
-        .history {
-            background: var(--floral-white);
-        }
-
-        .history-content {
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 50px;
-
-            align-items: center;
-        }
-
-        .history-text p {
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            margin-bottom: 18px;
-        }
-
-        .history-year {
-            color: var(--racing-red);
-
-            font-size: 23px;
-
-            font-weight: bold;
-
-            margin-top: 25px;
-
-            margin-bottom: 8px;
-        }
-
-        .history-image {
-            min-height: 350px;
-
-            border-radius: 25px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--pastel-pink),
-                    var(--crushed-berry)
-                );
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            overflow: hidden;
-
-            box-shadow: 0 20px 50px var(--shadow);
-        }
-
-        .history-image img {
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        /* =========================
-           CRIAÇÃO
-           ========================= */
-
-        .creation {
-            background: var(--pastel-pink);
-        }
-
-        .creation-card {
-            max-width: 800px;
-
-            margin: auto;
-
-            background: var(--floral-white);
-
-            padding: 45px;
-
-            border-radius: 25px;
-
-            text-align: center;
-
-            box-shadow: 0 20px 50px var(--shadow);
-        }
-
-        .creation-year {
-            font-size: 70px;
-
-            font-weight: bold;
-
-            color: var(--racing-red);
-
-            margin-bottom: 15px;
-        }
-
-        .creation-card p {
-            font-size: 18px;
-
-            line-height: 1.7;
-        }
-
-        /* =========================
-           PRODUTOS
-           ========================= */
-
-        .products {
-            background: var(--floral-white);
-        }
-
-        .product-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(230px, 1fr));
-
-            gap: 25px;
-        }
-
-        .product-card {
-            background: white;
-
-            border-radius: 22px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 10px 30px rgba(37, 2, 2, 0.1);
-
-            transition: 0.35s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-
-            box-shadow:
-                0 20px 40px rgba(37, 2, 2, 0.2);
-        }
-
-        .product-image {
-            height: 220px;
-
-            background: var(--pastel-pink);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 22px;
-        }
-
-        .product-info h3 {
-            color: var(--crushed-berry);
-
-            margin-bottom: 8px;
-        }
-
-        .product-info p {
-            line-height: 1.6;
-        }
-
-        /* =========================
-           CURIOSIDADES
-           ========================= */
-
-        .facts {
-            background: var(--rich-mahogany);
-
-            color: var(--floral-white);
-        }
-
-        .facts .section-title h2 {
-            color: var(--floral-white);
-        }
-
-        .facts-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(230px, 1fr));
-
-            gap: 25px;
-        }
-
-        .fact-card {
-            padding: 30px;
-
-            border: 1px solid rgba(255,255,255,0.1);
-
-            border-radius: 20px;
-
-            background: rgba(255,255,255,0.04);
-
-            transition: 0.3s;
-        }
-
-        .fact-card:hover {
-            background: rgba(241, 2, 34, 0.18);
-
-            transform: translateY(-6px);
-        }
-
-        .fact-number {
-            font-size: 40px;
-
-            color: var(--racing-red);
-
-            margin-bottom: 12px;
-        }
-
-        .fact-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .fact-card p {
-            line-height: 1.6;
-
-            color: #f8dddd;
-        }
-
-        /* =========================
-           PROPOSTA
-           ========================= */
-
-        .proposal {
-            background: var(--pastel-pink);
-        }
-
-        .proposal-box {
-            max-width: 850px;
-
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .proposal-box p {
-            font-size: 21px;
-
-            line-height: 1.8;
-        }
-
-        /* =========================
-           FUNCIONÁRIOS
-           ========================= */
-
-        .employees {
-            background: var(--floral-white);
-        }
-
-        .employee-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(230px, 1fr));
-
-            gap: 25px;
-        }
-
-        .employee-card {
-            background: white;
-
-            padding: 28px;
-
-            border-radius: 22px;
-
-            text-align: center;
-
-            box-shadow:
-                0 10px 30px rgba(37, 2, 2, 0.1);
-
-            transition: 0.3s;
-        }
-
-        .employee-card:hover {
-            transform: translateY(-8px);
-
-            box-shadow:
-                0 20px 40px rgba(37, 2, 2, 0.18);
-        }
-
-        .employee-card h3 {
-            color: var(--crushed-berry);
-
-            margin-bottom: 10px;
-
-            font-size: 23px;
-        }
-
-        .employee-card p {
-            line-height: 1.6;
-        }
-
-        /* =========================
-           CONTATO
-           ========================= */
-
-        .contact {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--crushed-berry),
-                    var(--rich-mahogany)
-                );
-
-            color: var(--floral-white);
-
-            text-align: center;
-        }
-
-        .contact h2 {
-            color: var(--floral-white);
-        }
-
-        .contact p {
-            font-size: 18px;
-
-            margin-bottom: 15px;
-        }
-
-        .social-button {
-            display: inline-block;
-
-            margin-top: 20px;
-
-            padding: 13px 25px;
-
-            border: 1px solid var(--pastel-pink);
-
-            color: var(--floral-white);
-
-            text-decoration: none;
-
-            border-radius: 25px;
-
-            transition: 0.3s;
-        }
-
-        .social-button:hover {
-            background: var(--racing-red);
-
-            border-color: var(--racing-red);
-        }
-
-        /* =========================
-           FOOTER
-           ========================= */
-
-        footer {
-            background: #160101;
-
-            color: #dcbaba;
-
-            text-align: center;
-
-            padding: 30px 20px;
-
-            font-size: 14px;
-        }
-
-        footer strong {
-            color: var(--pastel-pink);
-        }
-
-        /* =========================
-           BOTÃO TOPO
-           ========================= */
-
-        #topButton {
-            position: fixed;
-
-            right: 25px;
-            bottom: 25px;
-
-            width: 48px;
-            height: 48px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--racing-red);
-
-            color: white;
-
-            font-size: 20px;
-
-            cursor: pointer;
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition: 0.3s;
-
-            z-index: 900;
-        }
-
-        #topButton.visible {
-            opacity: 1;
-
-            pointer-events: auto;
-        }
-
-        /* =========================
-           ANIMAÇÕES
-           ========================= */
-
-        .reveal {
-            opacity: 0;
-
-            transform: translateY(35px);
-
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-
-            transform: translateY(0);
-        }
-
-        @keyframes fadeUp {
-
-            from {
-                opacity: 0;
-
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform: translateY(0);
-            }
-
-        }
-
-        /* =========================
-           CELULAR
-           ========================= */
-
-        @media (max-width: 800px) {
-
-            nav {
-                padding: 12px 18px;
-            }
-
-            .menu {
-                display: none;
-            }
-
-            .nav-logo {
-                font-size: 16px;
-            }
-
-            .hero {
-                min-height: 90vh;
-            }
-
-            .history-content {
-                grid-template-columns: 1fr;
-            }
-
-            .history-image {
-                min-height: 280px;
-            }
-
-            section {
-                padding: 75px 20px;
-            }
-
-            .creation-card {
-                padding: 30px 20px;
-            }
-
-            .creation-year {
-                font-size: 55px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dulcis Paradisus</title>
+
+<meta name="description"
+content="Dulcis Paradisus — um toque de doçura em cada detalhe.">
+
+<style>
+
+:root {
+    --floral-white: #FFF9F2;
+    --pastel-pink: #FFCAD0;
+    --racing-red: #F10222;
+    --crushed-berry: #892325;
+    --rich-mahogany: #250202;
+    --shadow: rgba(37, 2, 2, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--floral-white);
+    color: var(--rich-mahogany);
+    overflow-x: hidden;
+}
+
+/* ================= MENU ================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(37, 2, 2, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--floral-white);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.menu {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+}
+
+.menu a {
+    color: var(--floral-white);
+    text-decoration: none;
+    padding: 9px 11px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: var(--racing-red);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 25px 70px;
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(241,2,34,0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            var(--rich-mahogany),
+            var(--crushed-berry)
+        );
+
+    color: var(--floral-white);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    animation: fadeUp 1.2s ease;
+}
+
+.hero-logo {
+    width: min(420px, 75vw);
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+}
+
+.hero p {
+    font-size: clamp(18px, 3vw, 25px);
+    color: var(--pastel-pink);
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--racing-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    transform: translateY(-5px);
+    background: #ff2944;
+}
+
+/* ================= SEÇÕES ================= */
+
+section {
+    padding: 100px 25px;
+    scroll-margin-top: 80px;
+}
+
+.section-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    color: var(--racing-red);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-size: clamp(35px,5vw,55px);
+    color: var(--rich-mahogany);
+    margin-top: 8px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--racing-red);
+    margin: 18px auto 0;
+}
+
+/* ================= HISTÓRIA ================= */
+
+.history {
+    background: var(--floral-white);
+}
+
+.history-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.history-text {
+    max-width: 900px;
+    margin: auto;
+}
+
+.history-text h3 {
+    color: var(--crushed-berry);
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.history-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* ================= CRIAÇÃO ================= */
+
+.creation {
+    background: var(--pastel-pink);
+}
+
+.creation-card {
+    max-width: 800px;
+    margin: auto;
+    background: var(--floral-white);
+    padding: 45px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 50px var(--shadow);
+}
+
+.creation-year {
+    font-size: 70px;
+    font-weight: bold;
+    color: var(--racing-red);
+    margin-bottom: 15px;
+}
+
+.creation-card p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* ================= PRODUTOS ================= */
+
+.products {
+    background: var(--floral-white);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(37,2,2,0.1);
+    transition: 0.35s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    height: 220px;
+    background: var(--pastel-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-info h3 {
+    color: var(--crushed-berry);
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    line-height: 1.6;
+}
+
+/* ================= CURIOSIDADES ================= */
+
+.facts {
+    background: var(--rich-mahogany);
+    color: var(--floral-white);
+}
+
+.facts .section-title h2 {
+    color: var(--floral-white);
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 25px;
+}
+
+.fact-card {
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+}
+
+.fact-number {
+    font-size: 40px;
+    color: var(--racing-red);
+    margin-bottom: 12px;
+}
+
+.fact-card h3 {
+    margin-bottom: 10px;
+}
+
+.fact-card p {
+    line-height: 1.6;
+    color: #f8dddd;
+}
+
+/* ================= PROPOSTA ================= */
+
+.proposal {
+    background: var(--pastel-pink);
+}
+
+.proposal-box {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.proposal-box p {
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+/* ================= FUNCIONÁRIOS ================= */
+
+.employees {
+    background: var(--floral-white);
+}
+
+.employee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 25px;
+}
+
+.employee-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(37,2,2,0.1);
+    transition: 0.3s;
+}
+
+.employee-card:hover {
+    transform: translateY(-7px);
+}
+
+.employee-card h3 {
+    color: var(--crushed-berry);
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.employee-card p {
+    line-height: 1.7;
+}
+
+.employee-card strong {
+    color: var(--racing-red);
+}
+
+/* ================= AVALIAÇÕES ================= */
+
+.reviews {
+    background: var(--pastel-pink);
+}
+
+.review-box {
+    max-width: 700px;
+    margin: auto;
+    background: var(--floral-white);
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 50px var(--shadow);
+}
+
+.review-box h3 {
+    color: var(--rich-mahogany);
+    margin-bottom: 15px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px 0 30px;
+}
+
+.stars button {
+    background: none;
+    border: none;
+    font-size: 42px;
+    color: #cdbaba;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.stars button:hover,
+.stars button.active {
+    color: var(--racing-red);
+    transform: scale(1.15);
+}
+
+.review-box textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 15px;
+    border: 1px solid #e3caca;
+    border-radius: 15px;
+    resize: vertical;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.review-box textarea:focus {
+    border-color: var(--racing-red);
+}
+
+.review-button {
+    margin-top: 18px;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 25px;
+    background: var(--racing-red);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review-button:hover {
+    background: var(--crushed-berry);
+    transform: translateY(-3px);
+}
+
+/* ================= CONTATO ================= */
+
+.contact {
+    background: linear-gradient(
+        135deg,
+        var(--crushed-berry),
+        var(--rich-mahogany)
+    );
+
+    color: var(--floral-white);
+    text-align: center;
+}
+
+.contact h2 {
+    color: var(--floral-white);
+}
+
+.contact p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.social-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 25px;
+    border: 1px solid var(--pastel-pink);
+    color: var(--floral-white);
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #160101;
+    color: #dcbaba;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+footer strong {
+    color: var(--pastel-pink);
+}
+
+/* ================= TOPO ================= */
+
+#topButton {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--racing-red);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+}
+
+#topButton.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ================= ANIMAÇÃO ================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= CELULAR ================= */
+
+@media (max-width:800px) {
+
+    nav {
+        padding: 12px 18px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .nav-logo {
+        font-size: 16px;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    section {
+        padding: 75px 20px;
+    }
+
+    .creation-card {
+        padding: 30px 20px;
+    }
+
+    .creation-year {
+        font-size: 55px;
+    }
+
+    .review-box {
+        padding: 30px 20px;
+    }
+
+    .stars button {
+        font-size: 35px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- MENU -->
+<!-- ================= MENU ================= -->
 
-    <header>
+<header>
 
-        <nav>
+<nav>
 
-            <a href="#inicio" class="nav-logo">
+<a href="#inicio" class="nav-logo">
 
-                <img src="logo.png" alt="Dulcis Paradisus">
+<img src="logo.png" alt="Dulcis Paradisus">
 
-                <span>Dulcis Paradisus</span>
+<span>Dulcis Paradisus</span>
 
-            </a>
+</a>
 
-            <ul class="menu">
+<ul class="menu">
 
-                <li><a href="#historia">História</a></li>
+<li><a href="#historia">História</a></li>
+<li><a href="#criacao">Criação</a></li>
+<li><a href="#produtos">Produtos</a></li>
+<li><a href="#curiosidades">Curiosidades</a></li>
+<li><a href="#proposta">Proposta</a></li>
+<li><a href="#funcionarios">Funcionários</a></li>
+<li><a href="#avaliacoes">Avaliações</a></li>
+<li><a href="#contato">Contato</a></li>
 
-                <li><a href="#criacao">Criação</a></li>
+</ul>
 
-                <li><a href="#produtos">Produtos</a></li>
+</nav>
 
-                <li><a href="#curiosidades">Curiosidades</a></li>
+</header>
 
-                <li><a href="#proposta">Proposta</a></li>
+<!-- ================= INÍCIO ================= -->
 
-                <li><a href="#funcionarios">Funcionários</a></li>
+<section class="hero" id="inicio">
 
-                <li><a href="#contato">Contato</a></li>
+<div class="hero-content">
 
-            </ul>
+<img
+src="logo.png"
+alt="Logo Dulcis Paradisus"
+class="hero-logo"
+>
 
-        </nav>
+<p>
+Um toque de doçura em cada detalhe.
+</p>
 
-    </header>
+<a href="#historia" class="hero-button">
+Conheça nossa história
+</a>
 
+</div>
 
-    <!-- INÍCIO -->
+</section>
 
-    <section class="hero" id="inicio">
+<!-- ================= HISTÓRIA ================= -->
 
-        <div class="hero-content">
+<section class="history reveal" id="historia">
 
-            <img
-                src="logo.png"
-                alt="Logo Dulcis Paradisus"
-                class="hero-logo"
-            >
+<div class="section-container">
 
-            <p>
-                Um toque de doçura em cada detalhe.
-            </p>
+<div class="section-title">
 
-            <a
-                href="#historia"
-                class="hero-button"
-            >
-                Conheça nossa história
-            </a>
+<span>Nossa trajetória</span>
 
-        </div>
+<h2>Nossa História</h2>
 
-    </section>
+</div>
 
+<div class="history-content">
 
-    <!-- HISTÓRIA -->
+<div class="history-text">
 
-    <section class="history reveal" id="historia">
+<h3>2015 — Ponta Grossa, PR 🇧🇷</h3>
 
-        <div class="section-container">
+<p>
+Em meio a um período de dificuldades econômicas no Brasil,
+seis amigos decidiram transformar suas habilidades em uma
+oportunidade. Assim nasceu a Dulcis Paradisus, em uma pequena
+cozinha no bairro Uvaranas.
+</p>
 
-            <div class="section-title">
+<p>
+Com poucos recursos, começaram produzindo bolos e doces por
+encomenda. Cada integrante assumiu uma função de acordo com
+suas habilidades, unindo confeitaria, administração,
+atendimento e criatividade.
+</p>
 
-                <span>Quem somos</span>
+<h3>2016–2020 — O crescimento</h3>
 
-                <h2>Nossa História</h2>
+<p>
+A qualidade dos produtos fez a Dulcis conquistar cada vez
+mais clientes. A empresa passou por diferentes espaços até
+chegar a uma grande loja em Ponta Grossa.
+</p>
 
-            </div>
+<p>
+O sucesso ultrapassou os limites da cidade: a Dulcis passou
+a movimentar o comércio local e atrair visitantes de diversas
+regiões do Brasil, transformando a confeitaria em um dos
+pontos procurados por quem visitava Ponta Grossa.
+</p>
 
-            <div class="history-content">
+<h3>2024 — Manchester, Reino Unido 🇬🇧</h3>
 
-                <div class="history-text">
+<p>
+Com a marca consolidada no Brasil, os seis decidiram expandir
+para a Europa. A equipe original assumiu a unidade de
+Manchester, enquanto uma nova gerência ficou responsável
+pela loja brasileira.
+</p>
 
-                    <div class="history-year">
-                        2015 — Ponta Grossa, PR 🇧🇷
-                    </div>
+<h3>2026 — Paris, França 🇫🇷</h3>
 
-                    <p>
-                        Em meio a um período de dificuldades econômicas
-                        no Brasil, seis amigos decidiram transformar suas
-                        habilidades em uma oportunidade. Assim nasceu a
-                        Dulcis Paradisus, em uma pequena cozinha no bairro
-                        Uvaranas.
-                    </p>
+<p>
+Atualmente, a Dulcis inicia uma nova fase com a preparação
+de sua primeira unidade em Paris, levando para a França a
+história que começou em uma pequena cozinha de Uvaranas.
+</p>
 
-                    <p>
-                        Com poucos recursos, começaram produzindo bolos
-                        e doces por encomenda. Cada integrante assumiu
-                        uma função de acordo com suas habilidades,
-                        unindo confeitaria, administração, atendimento
-                        e criatividade.
-                    </p>
+</div>
 
+</div>
 
-                    <div class="history-year">
-                        2016–2020 — O crescimento
-                    </div>
+</div>
 
-                    <p>
-                        A qualidade dos produtos fez a Dulcis conquistar
-                        cada vez mais clientes. A empresa passou por
-                        diferentes espaços até chegar a uma grande loja
-                        em Ponta Grossa.
-                    </p>
+</section>
 
-                    <p>
-                        O sucesso ultrapassou os limites da cidade:
-                        a Dulcis passou a movimentar o comércio local
-                        e atrair visitantes de diversas regiões do Brasil,
-                        transformando a confeitaria em um dos pontos
-                        procurados por quem visitava Ponta Grossa.
-                    </p>
+<!-- ================= CRIAÇÃO ================= -->
 
+<section class="creation reveal" id="criacao">
 
-                    <div class="history-year">
-                        2024 — Manchester, Reino Unido 🇬🇧
-                    </div>
+<div class="section-container">
 
-                    <p>
-                        Com a marca consolidada no Brasil, os seis
-                        decidiram expandir para a Europa. A equipe
-                        original assumiu a unidade de Manchester,
-                        enquanto uma nova gerência ficou responsável
-                        pela loja brasileira.
-                    </p>
+<div class="section-title">
 
+<span>O começo</span>
 
-                    <div class="history-year">
-                        2026 — Paris, França 🇫🇷
-                    </div>
+<h2>Quando tudo começou</h2>
 
-                    <p>
-                        Atualmente, a Dulcis inicia uma nova fase
-                        com a preparação de sua primeira unidade
-                        em Paris, levando para a França a história
-                        que começou em uma pequena cozinha de Uvaranas.
-                    </p>
+</div>
 
-                </div>
+<div class="creation-card">
 
+<div class="creation-year">
+2015
+</div>
 
-                <div class="history-image">
+<p>
+Seis amigos transformaram seus talentos em uma oportunidade
+e deram início à Dulcis Paradisus em uma pequena cozinha
+no bairro Uvaranas, em Ponta Grossa.
+</p>
 
-                    <!--
-                    COLOQUE UMA FOTO DA HISTÓRIA AQUI.
+</div>
 
-                    Exemplo:
+</div>
 
-                    <img
-                        src="historia.jpg"
-                        alt="História da Dulcis Paradisus"
-                    >
-                    -->
+</section>
 
-                </div>
+<!-- ================= PRODUTOS ================= -->
 
-            </div>
+<section class="products reveal" id="produtos">
 
-        </div>
+<div class="section-container">
 
-    </section>
+<div class="section-title">
 
+<span>Delícias</span>
 
-    <!-- CRIAÇÃO -->
+<h2>Nossos Produtos</h2>
 
-    <section class="creation reveal" id="criacao">
+</div>
 
-        <div class="section-container">
+<div class="product-grid">
 
-            <div class="section-title">
+<article class="product-card">
 
-                <span>O começo</span>
+<div class="product-image">
 
-                <h2>Quando tudo começou</h2>
+<img src="bolo.jpg" alt="Bolo Dulcis Paradisus">
 
-            </div>
+</div>
 
-            <div class="creation-card">
+<div class="product-info">
 
-                <div class="creation-year">
-                    2015
-                </div>
+<h3>Bolo Especial</h3>
 
-                <p>
-                    A Dulcis Paradisus nasceu em Ponta Grossa
-                    com o objetivo de transformar confeitaria,
-                    criatividade e cuidado em experiências
-                    especiais.
-                </p>
+<p>
+Uma criação preparada especialmente para tornar
+cada momento mais doce.
+</p>
 
-            </div>
+</div>
 
-        </div>
+</article>
 
-    </section>
+<article class="product-card">
 
+<div class="product-image">
 
-    <!-- PRODUTOS -->
+<img src="produto2.jpg" alt="Produto Dulcis Paradisus">
 
-    <section class="products reveal" id="produtos">
+</div>
 
-        <div class="section-container">
+<div class="product-info">
 
-            <div class="section-title">
+<h3>Produto 2</h3>
 
-                <span>Delícias</span>
+<p>
+Uma deliciosa criação da Dulcis Paradisus.
+</p>
 
-                <h2>Nossos Produtos</h2>
+</div>
 
-            </div>
+</article>
 
-            <div class="product-grid">
+<article class="product-card">
 
-                <article class="product-card">
+<div class="product-image">
 
-                    <div class="product-image">
+<img src="produto3.jpg" alt="Produto Dulcis Paradisus">
 
-                        <img
-                            src="bolo.jpg"
-                            alt="Bolo Dulcis Paradisus"
-                        >
+</div>
 
-                    </div>
+<div class="product-info">
 
-                    <div class="product-info">
+<h3>Produto 3</h3>
 
-                        <h3>Bolo Especial</h3>
+<p>
+Mais uma experiência especial da nossa confeitaria.
+</p>
 
-                        <p>
-                            Uma criação preparada especialmente
-                            para tornar cada momento mais doce.
-                        </p>
+</div>
 
-                    </div>
+</article>
 
-                </article>
+</div>
 
+</div>
 
-                <article class="product-card">
+</section>
 
-                    <div class="product-image">
+<!-- ================= CURIOSIDADES ================= -->
 
-                        <img
-                            src="produto2.jpg"
-                            alt="Produto Dulcis Paradisus"
-                        >
+<section class="facts reveal" id="curiosidades">
 
-                    </div>
+<div class="section-container">
 
-                    <div class="product-info">
+<div class="section-title">
 
-                        <h3>Produto 2</h3>
+<span>Você sabia?</span>
 
-                        <p>
-                            Descrição do segundo produto.
-                        </p>
+<h2>Curiosidades</h2>
 
-                    </div>
+</div>
 
-                </article>
+<div class="facts-grid">
 
+<article class="fact-card">
 
-                <article class="product-card">
+<div class="fact-number">01</div>
 
-                    <div class="product-image">
+<h3>Seis amigos</h3>
 
-                        <img
-                            src="produto3.jpg"
-                            alt="Produto Dulcis Paradisus"
-                        >
+<p>
+A Dulcis Paradisus começou com seis amigos que decidiram
+unir seus talentos.
+</p>
 
-                    </div>
+</article>
 
-                    <div class="product-info">
+<article class="fact-card">
 
-                        <h3>Produto 3</h3>
+<div class="fact-number">02</div>
 
-                        <p>
-                            Descrição do terceiro produto.
-                        </p>
+<h3>Nosso nome</h3>
 
-                    </div>
+<p>
+"Dulcis Paradisus" transmite a ideia de um
+"paraíso doce".
+</p>
 
-                </article>
+</article>
 
-            </div>
+<article class="fact-card">
 
-        </div>
+<div class="fact-number">03</div>
 
-    </section>
+<h3>De Uvaranas para o mundo</h3>
 
+<p>
+O que começou em uma pequena cozinha chegou ao Reino Unido
+e agora começa sua expansão para Paris.
+</p>
 
-    <!-- CURIOSIDADES -->
+</article>
 
-    <section class="facts reveal" id="curiosidades">
+<article class="fact-card">
 
-        <div class="section-container">
+<div class="fact-number">04</div>
 
-            <div class="section-title">
+<h3>Ponta Grossa</h3>
 
-                <span>Você sabia?</span>
+<p>
+A Dulcis ajudou a movimentar o comércio local e atrair
+visitantes de diferentes regiões do Brasil.
+</p>
 
-                <h2>Curiosidades</h2>
+</article>
 
-            </div>
+</div>
 
-            <div class="facts-grid">
+</div>
 
-                <article class="fact-card">
+</section>
 
-                    <div class="fact-number">
-                        01
-                    </div>
+<!-- ================= PROPOSTA ================= -->
 
-                    <h3>Curiosidade</h3>
+<section class="proposal reveal" id="proposta">
 
-                    <p>
-                        Coloque aqui uma curiosidade interessante
-                        sobre a Dulcis Paradisus.
-                    </p>
+<div class="section-container">
 
-                </article>
+<div class="section-title">
 
+<span>Mais que confeitaria</span>
 
-                <article class="fact-card">
+<h2>Nossa Proposta</h2>
 
-                    <div class="fact-number">
-                        02
-                    </div>
+</div>
 
-                    <h3>Nosso nome</h3>
+<div class="proposal-box">
 
-                    <p>
-                        Explique aqui o significado de
-                        "Dulcis Paradisus".
-                    </p>
+<p>
+Na Dulcis Paradisus, acreditamos que a confeitaria não
+precisa ser apenas sobre sabor. Ela também pode despertar
+memórias, criar momentos e transformar pequenas ocasiões
+em experiências especiais.
+</p>
 
-                </article>
+</div>
 
+</div>
 
-                <article class="fact-card">
+</section>
 
-                    <div class="fact-number">
-                        03
-                    </div>
+<!-- ================= FUNCIONÁRIOS ================= -->
 
-                    <h3>Nossa identidade</h3>
+<section class="employees reveal" id="funcionarios">
 
-                    <p>
-                        Conte uma curiosidade sobre as cores,
-                        logo ou conceito da marca.
-                    </p>
+<div class="section-container">
 
-                </article>
+<div class="section-title">
 
+<span>Nossa equipe</span>
 
-                <article class="fact-card">
+<h2>Funcionários</h2>
 
-                    <div class="fact-number">
-                        04
-                    </div>
+</div>
 
-                    <h3>Um detalhe especial</h3>
+<div class="employee-grid">
 
-                    <p>
-                        Adicione outra curiosidade sobre a empresa.
-                    </p>
+<article class="employee-card">
 
-                </article>
+<h3>Matheus</h3>
 
-            </div>
+<p>
+<strong>Diretor</strong><br>
+Jurídico
+</p>
 
-        </div>
+</article>
 
-    </section>
+<article class="employee-card">
 
+<h3>Emanuelly</h3>
 
-    <!-- PROPOSTA -->
+<p>
+<strong>Confeiteira</strong><br>
+Cake Designer
+</p>
 
-    <section class="proposal reveal" id="proposta">
+</article>
 
-        <div class="section-container">
+<article class="employee-card">
 
-            <div class="section-title">
+<h3>Kalebe</h3>
 
-                <span>Mais que confeitaria</span>
+<p>
+<strong>Atendente</strong><br>
+Confeiteiro Auxiliar
+</p>
 
-                <h2>Nossa Proposta</h2>
+</article>
 
-            </div>
+<article class="employee-card">
 
-            <div class="proposal-box">
+<h3>Benjamin</h3>
 
-                <p>
-                    Na Dulcis Paradisus, acreditamos que a
-                    confeitaria não precisa ser apenas sobre
-                    sabor. Ela também pode despertar memórias,
-                    criar momentos e transformar pequenas
-                    ocasiões em experiências especiais.
-                </p>
+<p>
+<strong>Controle de Qualidade</strong><br>
+RH
+</p>
 
-            </div>
+</article>
 
-        </div>
+<article class="employee-card">
 
-    </section>
+<h3>Vincenzzo</h3>
 
+<p>
+<strong>Entregador</strong><br>
+Marketing
+</p>
 
-    <!-- FUNCIONÁRIOS -->
+</article>
 
-    <section class="employees reveal" id="funcionarios">
+<article class="employee-card">
 
-        <div class="section-container">
+<h3>Guilherme</h3>
 
-            <div class="section-title">
+<p>
+<strong>Financeiro</strong><br>
+Confeiteiro Auxiliar
+</p>
 
-                <span>Nossa equipe</span>
+</article>
 
-                <h2>Funcionários</h2>
+</div>
 
-            </div>
+</div>
 
-            <div class="employee-grid">
+</section>
 
-                <article class="employee-card">
+<!-- ================= AVALIAÇÕES ================= -->
 
-                    <h3>Matheus</h3>
+<section class="reviews reveal" id="avaliacoes">
 
-                    <p>
-                        Diretor<br>
-                        Jurídico
-                    </p>
+<div class="section-container">
 
-                </article>
+<div class="section-title">
 
+<span>Sua opinião</span>
 
-                <article class="employee-card">
+<h2>Avalie nossa experiência</h2>
 
-                    <h3>Emanuelly</h3>
+</div>
 
-                    <p>
-                        Confeiteira<br>
-                        Cake Designer
-                    </p>
+<div class="review-box">
 
-                </article>
+<h3>Como você avalia a Dulcis Paradisus?</h3>
 
+<div class="stars">
 
-                <article class="employee-card">
+<button type="button" data-star="1">☆</button>
+<button type="button" data-star="2">☆</button>
+<button type="button" data-star="3">☆</button>
+<button type="button" data-star="4">☆</button>
+<button type="button" data-star="5">☆</button>
 
-                    <h3>Kalebe</h3>
+</div>
 
-                    <p>
-                        Atendente<br>
-                        Confeiteiro Auxiliar
-                    </p>
+<h3>Deixe um comentário</h3>
 
-                </article>
+<textarea
+placeholder="Escreva sua experiência aqui..."
+></textarea>
 
+<br>
 
-                <article class="employee-card">
+<button
+type="button"
+class="review-button"
+onclick="enviarAvaliacao()"
+>
+Enviar avaliação
+</button>
 
-                    <h3>Benjamin</h3>
+</div>
 
-                    <p>
-                        Controle de Qualidade<br>
-                        RH
-                    </p>
+</div>
 
-                </article>
+</section>
 
+<!-- ================= CONTATO ================= -->
 
-                <article class="employee-card">
+<section class="contact reveal" id="contato">
 
-                    <h3>Vincenzzo</h3>
+<div class="section-container">
 
-                    <p>
-                        Entregador<br>
-                        Marketing
-                    </p>
+<div class="section-title">
 
-                </article>
+<span>Fale conosco</span>
 
+<h2>Contato</h2>
 
-                <article class="employee-card">
+</div>
 
-                    <h3>Guilherme</h3>
+<p>
+Quer conhecer mais sobre a Dulcis Paradisus?
+</p>
 
-                    <p>
-                        Financeiro<br>
-                        Confeiteiro Auxiliar
-                    </p>
+<p>
+@dulcisparadisus
+</p>
 
-                </article>
+<a href="#inicio" class="social-button">
+Voltar ao início
+</a>
 
-            </div>
+</div>
 
-        </div>
+</section>
 
-    </section>
+<!-- ================= FOOTER ================= -->
 
+<footer>
 
-    <!-- CONTATO -->
+<p>
+<strong>Dulcis Paradisus</strong>
+</p>
 
-    <section class="contact reveal" id="contato">
+<p>
+Um toque de doçura em cada detalhe.
+</p>
 
-        <div class="section-container">
+<br>
 
-            <div class="section-title">
+<p>
+© 2026 Dulcis Paradisus
+</p>
 
-                <span>Fale conosco</span>
+</footer>
 
-                <h2>Contato</h2>
+<button id="topButton" aria-label="Voltar ao topo">
+↑
+</button>
 
-            </div>
+<script>
 
-            <p>
-                Quer conhecer mais sobre a Dulcis Paradisus?
-            </p>
+/* ANIMAÇÃO */
 
-            <p>
-                @dulcisparadisus
-            </p>
+const revealElements =
+document.querySelectorAll(".reveal");
 
-            <a
-                href="#inicio"
-                class="social-button"
-            >
-                Voltar ao início
-            </a>
+const observer =
+new IntersectionObserver(
+(entries) => {
 
-        </div>
+entries.forEach(entry => {
 
-    </section>
+if (entry.isIntersecting) {
 
+entry.target.classList.add("active");
 
-    <!-- RODAPÉ -->
+}
 
-    <footer>
+});
 
-        <p>
-            <strong>Dulcis Paradisus</strong>
-        </p>
+},
+{
+threshold: 0.15
+}
+);
 
-        <p>
-            Um toque de doçura em cada detalhe.
-        </p>
+revealElements.forEach(element => {
 
-        <br>
+observer.observe(element);
 
-        <p>
-            © 2026 Dulcis Paradisus
-        </p>
+});
 
-    </footer>
+/* BOTÃO TOPO */
 
+const topButton =
+document.getElementById("topButton");
 
-    <!-- BOTÃO TOPO -->
+window.addEventListener("scroll", () => {
 
-    <button id="topButton" aria-label="Voltar ao topo">
-        ↑
-    </button>
+if (window.scrollY > 500) {
 
+topButton.classList.add("visible");
 
-    <script>
+} else {
 
-        const revealElements =
-            document.querySelectorAll(".reveal");
+topButton.classList.remove("visible");
 
-        const observer =
-            new IntersectionObserver(
-                (entries) => {
+}
 
-                    entries.forEach(entry => {
+});
 
-                        if (entry.isIntersecting) {
+topButton.addEventListener("click", () => {
 
-                            entry.target.classList.add("active");
+window.scrollTo({
 
-                        }
+top: 0,
+behavior: "smooth"
 
-                    });
+});
 
-                },
+});
 
-                {
-                    threshold: 0.15
-                }
+/* ESTRELAS */
 
-            );
+const stars =
+document.querySelectorAll(".stars button");
 
-        revealElements.forEach(element => {
+stars.forEach(star => {
 
-            observer.observe(element);
+star.addEventListener("click", () => {
 
-        });
+const rating =
+Number(star.dataset.star);
 
+stars.forEach(item => {
 
-        const topButton =
-            document.getElementById("topButton");
+const itemRating =
+Number(item.dataset.star);
 
+if (itemRating <= rating) {
 
-        window.addEventListener("scroll", () => {
+item.textContent = "★";
+item.classList.add("active");
 
-            if (window.scrollY > 500) {
+} else {
 
-                topButton.classList.add("visible");
+item.textContent = "☆";
+item.classList.remove("active");
 
-            } else {
+}
 
-                topButton.classList.remove("visible");
+});
 
-            }
+});
 
-        });
+});
 
+/* BOTÃO AVALIAÇÃO */
 
-        topButton.addEventListener("click", () => {
+function enviarAvaliacao() {
 
-            window.scrollTo({
+alert(
+"Obrigado pela sua avaliação! ❤️"
+);
 
-                top: 0,
+}
 
-                behavior: "smooth"
-
-            });
-
-        });
-
-
-        document.querySelectorAll(".menu a")
-            .forEach(link => {
-
-                link.addEventListener("click", () => {
-
-                    window.scrollBy(0, 0);
-
-                });
-
-            });
-
-    </script>
+</script>
 
 </body>
-                    </html>
+</html>

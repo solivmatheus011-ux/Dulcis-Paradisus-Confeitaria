@@ -257,56 +257,124 @@ section {
     line-height: 1.7;
 }
 
-/* ================= PRODUTOS ================= */
+/* ================= MENU DO DIA ================= */
 
-.products {
+.menu-dia {
+    position: relative;
+    overflow: hidden;
     background: var(--floral-white);
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-    gap: 25px;
+.menu-dia::before,
+.menu-dia::after {
+    content: "";
+    position: absolute;
+    border: 2px solid var(--crushed-berry);
+    opacity: 0.06;
+    pointer-events: none;
 }
 
-.product-card {
-    background: white;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(37,2,2,0.1);
-    transition: 0.35s;
+.menu-dia::before {
+    width: 260px;
+    height: 260px;
+    border-radius: 48% 52% 45% 55%;
+    left: -110px;
+    top: 80px;
+    transform: rotate(25deg);
+    box-shadow: 35px 25px 0 -8px transparent,
+                70px 50px 0 -12px transparent;
 }
 
-.product-card:hover {
-    transform: translateY(-10px);
+.menu-dia::after {
+    width: 190px;
+    height: 190px;
+    border-radius: 50% 45% 55% 50%;
+    right: -70px;
+    bottom: 70px;
+    transform: rotate(-20deg);
 }
 
-.product-image {
-    height: 220px;
-    background: var(--pastel-pink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.menu-container {
+    max-width: 1050px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
 }
 
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.menu-intro {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 40px;
 }
 
-.product-info {
-    padding: 22px;
-}
-
-.product-info h3 {
+.menu-intro p {
+    font-size: 20px;
+    line-height: 1.7;
     color: var(--crushed-berry);
-    margin-bottom: 8px;
+    font-style: italic;
 }
 
-.product-info p {
-    line-height: 1.6;
+.menu-image-wrap {
+    width: min(720px, 94%);
+    margin: 0 auto;
+    padding: 12px;
+    background: var(--pastel-pink);
+    border-radius: 28px;
+    box-shadow: 0 20px 55px var(--shadow);
+}
+
+.menu-image-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+}
+
+.menu-invitation {
+    text-align: center;
+    margin: 35px auto 0;
+    max-width: 750px;
+}
+
+.menu-invitation h3 {
+    color: var(--crushed-berry);
+    font-size: clamp(24px, 4vw, 34px);
+    margin-bottom: 12px;
+}
+
+.menu-invitation p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.menu-silhouette {
+    position: absolute;
+    z-index: 1;
+    color: var(--crushed-berry);
+    opacity: 0.045;
+    pointer-events: none;
+    user-select: none;
+}
+
+.menu-silhouette.one {
+    left: 4%;
+    top: 18%;
+    font-size: 150px;
+    transform: rotate(-15deg);
+}
+
+.menu-silhouette.two {
+    right: 4%;
+    top: 38%;
+    font-size: 130px;
+    transform: rotate(12deg);
+}
+
+.menu-silhouette.three {
+    left: 12%;
+    bottom: 8%;
+    font-size: 110px;
+    transform: rotate(10deg);
 }
 
 /* ================= CURIOSIDADES ================= */
@@ -640,7 +708,7 @@ footer strong {
 
 <li><a href="#historia">História</a></li>
 <li><a href="#criacao">Criação</a></li>
-<li><a href="#produtos">Produtos</a></li>
+<li><a href="#menu">Menu do Dia</a></li>
 <li><a href="#curiosidades">Curiosidades</a></li>
 <li><a href="#proposta">Proposta</a></li>
 <li><a href="#funcionarios">Funcionários</a></li>
@@ -783,83 +851,41 @@ no bairro Uvaranas, em Ponta Grossa.
 
 </section>
 
-<!-- ================= PRODUTOS ================= -->
+<!-- ================= MENU DO DIA ================= -->
 
-<section class="products reveal" id="produtos">
+<section class="menu-dia reveal" id="menu">
 
-<div class="section-container">
+<div class="menu-silhouette one">♢</div>
+<div class="menu-silhouette two">✦</div>
+<div class="menu-silhouette three">❀</div>
+
+<div class="menu-container">
 
 <div class="section-title">
 
-<span>Delícias</span>
+<span>Sabores de hoje</span>
 
-<h2>Nossos Produtos</h2>
-
-</div>
-
-<div class="product-grid">
-
-<article class="product-card">
-
-<div class="product-image">
-
-<img src="bolo.jpg" alt="Bolo Dulcis Paradisus">
+<h2>Menu do Dia</h2>
 
 </div>
 
-<div class="product-info">
-
-<h3>Bolo Especial</h3>
-
+<div class="menu-intro">
 <p>
-Uma criação preparada especialmente para tornar
-cada momento mais doce.
+Permita-se uma pausa, descubra nossas delícias e venha se
+deliciar com o que a Dulcis Paradisus preparou para você.
 </p>
-
 </div>
 
-</article>
-
-<article class="product-card">
-
-<div class="product-image">
-
-<img src="produto2.jpg" alt="Produto Dulcis Paradisus">
-
+<div class="menu-image-wrap">
+<img src="menu-do-dia.png" alt="Menu do Dia da Dulcis Paradisus">
 </div>
 
-<div class="product-info">
-
-<h3>Produto 2</h3>
-
+<div class="menu-invitation">
+<h3>Uma experiência feita para você</h3>
 <p>
-Uma deliciosa criação da Dulcis Paradisus.
+Do nosso Red Velvet ao acompanhamento refrescante, cada detalhe
+foi pensado para tornar este momento ainda mais especial.
 </p>
-
-</div>
-
-</article>
-
-<article class="product-card">
-
-<div class="product-image">
-
-<img src="produto3.jpg" alt="Produto Dulcis Paradisus">
-
-</div>
-
-<div class="product-info">
-
-<h3>Produto 3</h3>
-
-<p>
-Mais uma experiência especial da nossa confeitaria.
-</p>
-
-</div>
-
-</article>
-
 </div>
 
 </div>
@@ -1153,6 +1179,13 @@ Um toque de doçura em cada detalhe.
 
 <p>
 © 2026 Dulcis Paradisus
+</p>
+
+<br>
+
+<p>
+<strong>Projeto fictício</strong> desenvolvido para o SESI de Ponta Grossa,
+na Oficina Bake Off — Equipe 05, Red Velvet.
 </p>
 
 </footer>
